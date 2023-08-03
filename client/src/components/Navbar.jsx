@@ -1,5 +1,11 @@
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+
 export default function Navbar() {
   return (
-    <div>Navbar  Goes Here</div>
+    <div>
+      <LoginButton />
+      <LogoutButton />
+    </div>
   );
 }
