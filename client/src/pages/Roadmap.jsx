@@ -25,9 +25,11 @@ export default function RoadMap() {
   const [ hasData, setHasData ] = useState(false);
   const [, setSearchParams] = useSearchParams();
   const actionData = useActionData();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getUserData() {
+      setLoading(true);
       if (user) {
         const res = await axios.get(`http://127.0.0.1:8000/api/user-info?email=${user.email}`)
         if (res.data.dataExists) {
@@ -40,9 +42,16 @@ export default function RoadMap() {
           });
         }
       }
+      setLoading(false);
     }
     getUserData()
   }, [user, isAuthenticated, setHasData, setSearchParams])
+
+  if (loading) {
+    return (
+      <div>Loading...</div>
+    );
+  }
 
   return (
     <div>
