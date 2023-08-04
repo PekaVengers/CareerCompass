@@ -1,10 +1,8 @@
-from django.contrib import admin
-from django.urls import path
-from . import views
+from django.urls import path 
+from .views import IndexView
 
+app_name = "api"
 
 urlpatterns = [
-    path('public', views.public),
-    path('private', views.private),
-    path('private-scoped', views.private_scoped)
+  path("", IndexView.as_view()),
 ]

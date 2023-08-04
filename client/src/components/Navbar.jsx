@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 
@@ -6,6 +7,7 @@ export default function Navbar() {
     <div>
       <LoginButton />
       <LogoutButton />
+      <NavLink to="/profile">Profile</NavLink>
     </div>
   );
 }

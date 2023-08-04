@@ -9,8 +9,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Auth0Provider
     domain={import.meta.env.VITE_AUTH0_DOMAIN}
     clientId={import.meta.env.VITE_AUTH0_CLIENTID}
+    useRefreshTokens
+    cacheLocation="localstorage"
     authorizationParams={{
-      redirect_uri: "http://localhost:5173",
+      redirect_uri: "http://localhost:5173/profile",
     }}
   >
     <App />
