@@ -8,6 +8,7 @@ export default function Navbar() {
       <LoginButton />
       <LogoutButton />
       <NavLink to="/profile">Profile</NavLink>
+      <NavLink to="/roadmap">Roadmap</NavLink>
     </div>
   );
 }
