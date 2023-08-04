@@ -11,15 +11,22 @@ class IndexView(APIView):
 class StoreUserInfo(APIView):
     def get(self, request):
         email = request.GET.get("email") 
+        print(email)
         dataExists = UserDetails.objects.filter(email=email).exists()
+        print(dataExists)
         return Response({"dataExists": dataExists})
 
     def post(self, request):
         email = request.data.get("email")
         if UserDetails.objects.filter(email=email).exists():
-            return Response({"success", "user exists"}, status=status.HTTP_200_OK)
-        serializer = UserDetailsSerializer(data=request.data)
+            user_detail = UserDetails.objects.get(email=email)
+            serializer = UserDetailsSerializer(data=request.data, instance=user_detail)
+            message = "User Data Updated!"
+        else:
+            serializer = UserDetailsSerializer(data=request.data)
+            message = "User Data Created!"
+
         if serializer.is_valid():
             serializer.save()
-            return Response({"success", "user data created"}, status=status.HTTP_200_OK)
+            return Response({"success", message}, status=status.HTTP_200_OK)
         return Response(serializer.errors)
