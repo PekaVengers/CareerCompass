@@ -11,9 +11,7 @@ class IndexView(APIView):
 class StoreUserInfo(APIView):
     def get(self, request):
         email = request.GET.get("email") 
-        print(email)
         dataExists = UserDetails.objects.filter(email=email).exists()
-        print(dataExists)
         return Response({"dataExists": dataExists})
 
     def post(self, request):
