@@ -6,4 +6,4 @@ class UserDetails(models.Model):
   interest = models.TextField()
   strength = models.TextField()
   aspiration = models.TextField()
-  location = models.CharField(max_length=100)
+  education = models.CharField(max_length=100)

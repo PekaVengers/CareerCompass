@@ -17,6 +17,8 @@ export async function action({ request }) {
     console.log(res.data);
   }
 
+  
+
   return {"suggestions": []};
 }
 
