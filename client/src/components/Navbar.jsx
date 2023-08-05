@@ -2,8 +2,20 @@ import { NavLink } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Logo from "../assets/logo.png";
+import { useAuth0 } from "@auth0/auth0-react";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+  const {isAuthenticated} = useAuth0();
+  const [isLoggedIn, setIsLoggedIn] = useState(isAuthenticated);
+  const location = useLocation();
+  useEffect(() => {
+    setIsLoggedIn(isAuthenticated);
+  }, [location.pathname, isAuthenticated])
+  console.log(isLoggedIn);
+  console.log("isAuthorized", isAuthenticated);
+
   return (
     <div>
       <div className="p-5 bg-white shadow md:flex md:items-center md:justify-between">
@@ -15,15 +27,24 @@ export default function Navbar() {
           <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/">Home</NavLink>
           </li>
-          <li className="mx-4 my-6 md:my-0">
+          {
+            !isLoggedIn && 
+            <li className="mx-4 my-6 md:my-0">
             <LoginButton />
           </li>
-          <li className="mx-4 my-6 md:my-0">
+          }
+          {
+            isLoggedIn &&
+            <li className="mx-4 my-6 md:my-0">
             <LogoutButton />
           </li>
-          <li className="mx-4 my-6 md:my-0">
+          }
+          {
+            isLoggedIn && 
+            <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/profile">Profile</NavLink>
           </li>
+          }
           <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
           </li>
