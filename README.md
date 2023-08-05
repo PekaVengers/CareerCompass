@@ -1,7 +1,7 @@
 # CareerCompass
 
 <p align="center">
-    <img src="https://github.com/PekaVengers/CareerCompass/client/src/assets/images/logo.png" alt="Logo" width="200" height="200">
+    <img src="./client/src/assets/images/logo.png" alt="Logo" >
 </p>
 
 CareerCompass aims to assist students in making informed decisions about their future career paths. By allowing students to fill in their details and interests, the platform suggests suitable career options based on their preferences. Once a student selects a specific career field, CareerCompass provides a detailed roadmap outlining the steps and milestones required to pursue that career. Additionally, the platform offers a curated list of resources, such as books, YouTube videos, and channels, to help students gain knowledge and skills related to their chosen career path.
@@ -68,7 +68,7 @@ GitCollabX is developed by a passionate and talented team dedicated to fostering
 
 - Kailash (@kailashchoudhary11) - Project Lead and Full-stack Developer
 - Shubham (@MisterMickey) - Frontend Developer and UI/UX Designer
-- Kashish (@Vidip-Ghosh) - Ui/Ux & Graphics Designer
+- Kashish (@kkashish428) - Ui/Ux & Graphics Designer
 - Himanshu (@itshypon) - Full Stack Developer
 
 ## Thanks for Visiting!
