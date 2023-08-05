@@ -1,14 +1,26 @@
 import cardbook from "../assets/cardbook.png"
+import bookmark from "../assets/bookmark.svg"
+import like from "../assets/like.png"
+import dislike from "../assets/dislike.png"
+import ytimg from "../assets/ytImg.png"
 
 export default function Card(props){
     return(
-        <div className="container flex max-h-[255px]">
-            <div className="image">
-                <img src={cardbook} alt="" />
-            </div>
-            <div className="content text-lg p-2 flex-col gap-2">
-                <div className="title font-bold">
+        <div className="container flex max-h-[255px] mb-[27px] rounded-3xl">
+            {props.type === 'price' ? (
+                <div className="image">
+                <img className="rounded-l"  src={cardbook} alt="" />
+                </div>
+            ) : props.type === 'yt' ? (
+                    <div className="image">
+                        <img className = "rounded-l" src={ytimg} alt="" />
+                    </div>
+            ) : null}
+            
+            <div className="content text-lg p-1 flex-col gap-4 bg-[#D9FEDC] rounded-r">
+                <div className="title font-bold flex justify-between">
                     {props.title}
+                    <img className="w-[40px] h-[40px]" src={bookmark} alt="" />
                 </div>
                 <div className="desc text-lg">
                     {props.content}
@@ -16,10 +28,13 @@ export default function Card(props){
                 {props.type === 'price' ? (
                     <div className="price">
                         <div className="priceAmount text-xl font-bold">{props.priceAmount}</div>
-                        <div className="link text-lg"><a href={props.link}>{props.link}</a></div>
+                        <div className="link text-lg underline"><a href={props.link}>{props.link}</a></div>
                     </div>
                 ) : props.type === 'yt' ? (
-                    <div>hi</div>
+                    <div className="flex gap-2">
+                        <img src={like} alt="" />
+                        <img src={dislike} alt="" />
+                    </div>
                 ) : null }
             </div>
         </div>

@@ -2,6 +2,7 @@ import { useLocation } from "react-router";
 import roadmap from "../assets/roadmap.png";
 import bookmark from "../assets/bookmark.svg";
 import books from "../assets/books.png";
+import yt from "../assets/yt.png"
 import RoadmapStep from "../components/RoadmapStep";
 import Card from "../components/Card";
 
@@ -43,7 +44,7 @@ export default function RoadmapDetail() {
       </div>
       <div className="col-2 ml-[57px]">
         <div className="book">
-          <div className="title flex gap-2 mb-[27px]">
+          <div className="title flex gap-2 mb-[39px]">
             <img src={books} alt="" />
             <div className="text-3xl font-bold">REFERNCE BOOKS</div>
           </div>
@@ -53,10 +54,38 @@ export default function RoadmapDetail() {
           type = "price"
           priceAmount = "Rs 4599.00"
           link = "Amazon.in"
+          /><Card 
+          title = "Full Stack Web Development For Beginners"
+          content = "This book is written for absolute beginners who want to become full stack web application developer."
+          type = "price"
+          priceAmount = "Rs 4599.00"
+          link = "Amazon.in"
+          /><Card 
+          title = "Full Stack Web Development For Beginners"
+          content = "This book is written for absolute beginners who want to become full stack web application developer."
+          type = "price"
+          priceAmount = "Rs 4599.00"
+          link = "Amazon.in"
           />
         </div>
         <div className="yt">
-
+          <div className="title flex gap-2 mb-[39px]">
+            <img src={yt} alt="" />
+            <div className="text-3xl font-bold">YOUTUBE CHANNELS</div>
+          </div>
+          <Card 
+          title = "Complete Web Developer Bootcamp"
+          content = "Web Development Tutorials"
+          type = "yt"
+          /><Card 
+          title = "Complete Web Developer Bootcamp"
+          content = "Web Development Tutorials"
+          type = "yt"
+          /><Card 
+          title = "Complete Web Developer Bootcamp"
+          content = "Web Development Tutorials"
+          type = "yt"
+          />
         </div>
         <div className="community">
 
