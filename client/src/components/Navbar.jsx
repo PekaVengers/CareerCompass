@@ -25,27 +25,27 @@ export default function Navbar() {
 
         <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[400px] transition-all ease-in duration-500">
           <li className="mx-4 my-6 md:my-0">
-            <NavLink className="text-xl hover:text-green-500 duration-500" to="/">Home</NavLink>
+            <NavLink className="text-xl hover:text-green-500 duration-500 font-inter" to="/">Home</NavLink>
           </li>
           {
             !isLoggedIn && 
-            <li className="mx-4 my-6 md:my-0">
+            <li className="mx-4 my-6 md:my-0 font-inter">
             <LoginButton />
           </li>
           }
           {
             isLoggedIn &&
-            <li className="mx-4 my-6 md:my-0">
+            <li className="mx-4 my-6 md:my-0 font-inter">
             <LogoutButton />
           </li>
           }
           {
             isLoggedIn && 
-            <li className="mx-4 my-6 md:my-0">
+            <li className="mx-4 my-6 md:my-0 font-inter">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/profile">Profile</NavLink>
           </li>
           }
-          <li className="mx-4 my-6 md:my-0">
+          <li className="mx-4 my-6 md:my-0 font-inter">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
           </li>
         </ul>
