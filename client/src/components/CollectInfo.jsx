@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Form} from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import formBg from "../assets/formbg.png"
+import formBg1 from "../assets/formbg1.png"
 
 export default function CollectInfo() {
   const [step, setStep] = useState(0);
   const [showError, setShowError] = useState(false);
   const [currentVal, setCurrentVal] = useState("");
-  const {user} = useAuth0();
+  const { user } = useAuth0();
 
   function changeStep() {
     if (currentVal === "" && step != 0) {
@@ -23,61 +25,86 @@ export default function CollectInfo() {
   }
 
   return (
-    <div>
-      <h1>Collecting user information</h1>
+    <div className="h-[750px] bg-no-repeat flex flex-col" style={step === 0 ? { backgroundImage: `url(${formBg})`, backgroundSize: "contain" } : { backgroundImage: `url(${formBg1})`, backgroundSize: "cover" }}>
       <Form method="post">
         {
-          <div style={step != 0 ? { display: "None" } : {}}>
-            Let&apos;s go over some of your basic information.
+          <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1" style={step != 0 ? { display: "None" } : {}}>
+            <div>0 -&gt;</div>
+            <div>Let&apos;s go over some of your basic information.</div>
           </div>
         }
         {
           <div style={user || step != 1 ? { display: "None" } : {}}>
             <label htmlFor="name">
-              {step} What is your name?
-              <input onChange={handleChange} id="name" name="name" placeholder="Name" type="text" />
+              <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1">
+                <div>{step} -&gt; </div>
+                <div className="flex flex-col">
+                  <div>What is your name?</div>
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem" }} onChange={handleChange} id="name" name="name" type="text" />
+                </div>
+              </div>
             </label>
-            {showError && <div>This Field is Required</div>}
+            {showError && <div className="ml-[117px] text-2xl mb-1">(This Field is Required)</div>}
           </div>
         }
         {
           <div style={(!user && step != 2) || (user && step != 1) ? { display: "None" } : {}}>
             <label htmlFor="interest">
-              {step} What are your interests?
-              <input onChange={handleChange} id="interest" name="interest" placeholder="Interests" type="text" />
+              <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1">
+                <div>{step} -&gt; </div>
+                <div className="flex flex-col">
+                  <div>What are your interests?</div>
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
+                </div>
+              </div>
             </label>
-            {showError && <div>This Field is Required</div>}
+            {showError && <div className="ml-[117px] text-2xl mb-1">(This Field is Required)</div>}
           </div>
         }
         {
           <div style={(!user && step != 3) || (user && step != 2) ? { display: "None" } : {}}>
             <label htmlFor="strength">
-              {step} What are your strengths?
-              <input onChange={handleChange} id="strength" name="strength" placeholder="Strengths" type="text" />
+              <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1">
+                <div>{step} -&gt; </div>
+                <div className="flex flex-col">
+                  <div>What are your strengths?</div>
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
+                </div>
+              </div>
             </label>
-            {showError && <div>This Field is Required</div>}
+            {showError && <div className="ml-[117px] text-2xl mb-1">(This Field is Required)</div>}
           </div>
         }
         {
           <div style={(!user && step != 4) || (user && step != 3) ? { display: "None" } : {}}>
             <label htmlFor="aspiration">
-              {step} What is your aspiration?
-              <input onChange={handleChange} id="aspiration" name="aspiration" placeholder="Aspiration" type="text" />
+              <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1">
+                <div>{step} -&gt; </div>
+                <div className="flex flex-col">
+                  <div>What is your aspiration?</div>
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
+                </div>
+              </div>
             </label>
-            {showError && <div>This Field is Required</div>}
+            {showError && <div className="ml-[117px] text-2xl mb-1">(This Field is Required)</div>}
           </div>
         }
         {
           <div style={(!user && step != 5) || (user && step != 4) ? { display: "None" } : {}}>
             <label htmlFor="education">
-              {step} What is your education level?
-              <input onChange={handleChange} id="education" name="education" placeholder="education" type="text" />
+              <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1">
+                <div>{step} -&gt; </div>
+                <div className="flex flex-col">
+                  <div> What is your education level?</div>
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem" }} onChange={handleChange} id="education" name="education" type="text" />
+                </div>
+              </div>
             </label>
-            {showError && <div>This Field is Required</div>}
+            {showError && <div className="ml-[117px] text-2xl mb-1">(This Field is Required)</div>}
           </div>
         }
-        {((step <= 4 && !user) || (step <= 3 && user)) && <button type="button" onClick={changeStep}>{step === 0 ? "Let's Go" : "Next"}</button>}
-        {((!user && step >= 5) || (step >= 4 && user)) && <button>Submit</button>}
+        {((step <= 4 && !user) || (step <= 3 && user)) && <button className="absolute ml-[196px] mb-[341px] bg-[#43B14B] rounded-3xl text-white px-12 py-[13px] text-xl" type="button" onClick={changeStep}>{step === 0 ? "Let's Go" : "Next"}</button>}
+        {((!user && step >= 5) || (step >= 4 && user)) && <button className="absolute ml-[196px] mb-[341px] bg-[#43B14B] rounded-3xl text-white px-12 py-[13px] text-xl">Submit</button>}
       </Form>
     </div>
   );
