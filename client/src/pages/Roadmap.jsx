@@ -68,7 +68,7 @@ export default function RoadMap() {
   }
 
   return (
-    <div className="p-6">
+    <div className="">
       {hasData || actionData ? (
         <>
           <div className="text-lg font-semibold mb-4 px-20">
