@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <div className="bg-green-200 text-black pt-5 pb-2">
+    <div className="bg-[#CFFFD9] text-black pt-5 pb-2">
       <div className="container justify-center mx-20 flex items-center w-100">
         <div className="flex flex-col md:flex-row space-x-0 md:space-x-4 md:space-y-0 mb-5 md:mb-0 gap-10">
           <div className="footer-logo">
