@@ -4,7 +4,7 @@ import LogoutButton from "./LogoutButton";
 
 export default function Navbar() {
   return (
-    <div>
+    <div className="border-4 border-red-500 h-[5vh]">
       <NavLink to="/">Home</NavLink>
       <LoginButton />
       <LogoutButton />
