@@ -3,8 +3,9 @@ import CollectInfo from "../components/CollectInfo";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useSearchParams, useActionData } from "react-router-dom";
-import getOpenAi from "../utils/getOpenAi";
 import { getRoleData } from "../utils/getRoleData";
+// import getRoadMaps from "../utils/getRoadmaps";
+import { useNavigate } from "react-router-dom";
 
 export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
@@ -15,77 +16,15 @@ export async function action({ request }) {
     const email = searchParams.get("email");
     formData.append("email", email);
     const res = await axios.post("http://127.0.0.1:8000/api/user-info", formData);
+    console.log(res);
   }
-
-  const openai = getOpenAi();
-
-  const content1 = `
-You are Career Advisor now which will provide personalized guidance and roadmap to students on basis of latest trends or what suits better for future. You will provide career advice and roadmap to follow on basis on education level, field of interest, key strengths, education and aspiration of user. 
-You must consider the education level as content can differ based on age to age.
- Provide resources which are popular and of good quality. You must generate answer in such a manner such that it will not deviate for similar values.
-Return output in this manner -
-Hey [user name], suggested career or job for you is 
-[job name 1]
-[Job Description of [job name 1]:]
-(cover it in a single paragraph)
-[Roadmap to follow for [job name 1]:]
-(roadmap must be covered within 5 steps)
-[roadmap step a.)]
-[roadmap step b.)]
-[roadmap step c.)]
-[roadmap step d.)]
-[roadmap step e.)]
-[job name 2]
-[Job Description of [job name 2]:]
-(cover it in a single paragraph)
-[Roadmap to follow for [job name 2]:]
-(roadmap must be covered within 5 steps)
-[roadmap step a.)]
-[roadmap step b.)]
-[roadmap step c.)]
-[roadmap step d.)]
-[roadmap step e.)]
-[job name 3]
-[Job Description of [job name 3]:]
-(cover it in a single paragraph)
-[Roadmap to follow for [job name 3]:]
-(roadmap must be covered within 5 steps)
-[roadmap step a.)]
-[roadmap step b.)]
-[roadmap step c.)]
-[roadmap step d.)]
-[roadmap step e.)]
- 
-Information provided below is user input, gather that information and return output like you are told to.
-`
-  const content2 = `
-User name : Himanshu
-Fields of interest : technology, coding, chess
-Key strength: problem solving
-Aspiration : coding
-Education Level : University
-`
-
-  // const response = await openai.createChatCompletion({
-  //   model: "gpt-3.5-turbo",
-  //   messages: [
-  //     {
-  //       role: "system",
-  //       content: content1,
-  //     },
-  //     {
-  //       role: "user",
-  //       content: content2,
-  //     },
-  //   ],
-  //   temperature: 0.8,
-  //   top_p: 1,
-  //   frequency_penalty: 0,
-  //   presence_penalty: 0,
-  // });
-  // console.log(response)
-  // return response.data.choices[0].message.content;
-
+  // const name = formData.get("name");
+  // const interest = formData.get("interest");
+  // const strength = formData.get("strength");
+  // const aspiration = formData.get("aspiration");
+  // const education = formData.get("education");
+  // const roadmaps = await getRoadMaps(name, interest, strength, aspiration, education);
+  
   return getRoleData();
 
 }
@@ -96,7 +35,7 @@ export default function RoadMap() {
   const [, setSearchParams] = useSearchParams();
   const actionData = useActionData();
   const [loading, setLoading] = useState(true);
-  console.log(actionData)
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getUserData() {
@@ -118,6 +57,10 @@ export default function RoadMap() {
     getUserData()
   }, [user, isAuthenticated, setHasData, setSearchParams])
 
+  function handleClick() {
+    navigate("/roadmap-detail", {state: {roadmap: actionData.roadmap}});
+  }
+
   if (loading) {
     return (
       <div>Loading...</div>
@@ -129,7 +72,7 @@ export default function RoadMap() {
       {hasData || actionData ? (
         <>
           <div className="text-lg font-semibold mb-4 px-20">
-          We&apos;re thrilled to help you explore exciting career options based on your interests and strengths.
+            We&apos;re thrilled to help you explore exciting career options based on your interests and strengths.
           </div>
           <div className="text-lg font-semibold mb-4 px-20">
             Here are some suggested career paths that align with your profile.
@@ -140,7 +83,9 @@ export default function RoadMap() {
                 <div className="bg-green-200 rounded-3xl p-4 shadow-md">
                   <h3 className="text-xl font-semibold my-5">{role.name}</h3>
                   <div className="mt-2">{role.description.length > 300 ? role.description.slice(0, 300) + "..." : role.description}</div>
-                  <button className="mt-7 bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">See More</button>
+                  <button onClick={handleClick} to="roadmap-detail" className="mt-7 bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">
+                      See More
+                  </button>
                 </div>
               </div>
             ))}

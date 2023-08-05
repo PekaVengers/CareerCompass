@@ -37,11 +37,15 @@ Remember, these are just a few career options based on your interests and streng
 `;
 
 export function getRoleData() {
-    const res = [];
-    let roles = data.split(/\d+\.\s/).slice(1);
-    for (let role of roles) {
-        const roleData = role.split("\n");
-        res.push({name: roleData[0], description: roleData[2]})
-    }
-    return res;
+  const res = [];
+  let roles = data.split(/\d+\.\s/).slice(1);
+  for (let role of roles) {
+      const roleData = role.split("\n");
+      const roadmap = [];
+      for (let i = 5; i < 10; i++) {
+        roadmap.push(roleData[i].slice(4));
+      }
+      res.push({name: roleData[0], description: roleData[2], roadmap: roadmap})
+  }
+  return res;
 }
