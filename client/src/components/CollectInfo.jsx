@@ -29,7 +29,6 @@ export default function CollectInfo() {
       <Form method="post">
         {
           <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1" style={step != 0 ? { display: "None" } : {}}>
-            <div>0 -&gt;</div>
             <div>Let&apos;s go over some of your basic information.</div>
           </div>
         }
@@ -37,7 +36,7 @@ export default function CollectInfo() {
           <div className="flex flex-col items-center mt-[273px]" style={user || step != 1 ? { display: "None" } : {}}>
             <label htmlFor="name">
               <div className="flex gap-4 text-3xl mb-1">
-                <div>{step} -&gt; </div>
+                <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your name?</div>
                   <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="name" name="name" type="text" />
@@ -51,7 +50,7 @@ export default function CollectInfo() {
           <div className="flex flex-col items-center mt-[273px]" style={(!user && step != 2) || (user && step != 1) ? { display: "None" } : {}}>
             <label htmlFor="interest">
               <div className="flex gap-4 text-3xl mb-1">
-                <div>{step} -&gt; </div>
+                <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your interests?</div>
                   <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
@@ -65,7 +64,7 @@ export default function CollectInfo() {
           <div className="flex flex-col items-center mt-[273px]" style={(!user && step != 3) || (user && step != 2) ? { display: "None" } : {}}>
             <label htmlFor="strength">
               <div className="flex gap-4 text-3xl mb-1">
-                <div>{step} -&gt; </div>
+                <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your strengths?</div>
                   <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
@@ -79,7 +78,7 @@ export default function CollectInfo() {
           <div className="flex flex-col items-center mt-[273px]" style={(!user && step != 4) || (user && step != 3) ? { display: "None" } : {}}>
             <label htmlFor="aspiration">
               <div className="flex gap-4 text-3xl mb-1">
-                <div>{step} -&gt; </div>
+                <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your aspiration?</div>
                   <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
@@ -93,7 +92,7 @@ export default function CollectInfo() {
           <div className="flex flex-col items-center mt-[273px]" style={(!user && step != 5) || (user && step != 4) ? { display: "None" } : {}}>
             <label htmlFor="education">
               <div className="flex gap-4 text-3xl mb-1">
-                <div>{step} -&gt; </div>
+                <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div> What is your education level?</div>
                   <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="education" name="education" type="text" />
