@@ -69,9 +69,9 @@ export default function CollectInfo() {
         }
         {
           <div style={(!user && step != 5) || (user && step != 4) ? { display: "None" } : {}}>
-            <label htmlFor="location">
-              {step} What is your location?
-              <input onChange={handleChange} id="location" name="location" placeholder="Location" type="text" />
+            <label htmlFor="education">
+              {step} What is your education level?
+              <input onChange={handleChange} id="education" name="education" placeholder="education" type="text" />
             </label>
             {showError && <div>This Field is Required</div>}
           </div>
