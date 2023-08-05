@@ -3,23 +3,15 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Logo from "../assets/logo.png";
 
-function hamClick(e){
-  let list = document.querySelector('ul')
-  e.name === 'menu' ? (e.name = 'close', list.classList.add('top-[80px]'), list.classList.add('opacity-100')): e.name = 'menu', list.classList.remove('top-[80px'), ist.classList.remove('opacity-100')
-}
-
 export default function Navbar() {
   return (
     <div>
       <div className="p-5 bg-white shadow md:flex md:items-center md:justify-between">
         <div className="cursor-pointer flex justify-between items-center">
           <img src={Logo} alt="" />
-          <span className="text-3xl cursor-pointer md:hidden block">
-          <ion-icon name="menu-outline" onClick={hamClick}></ion-icon>
-          </span>
         </div>
 
-        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[400px] transition-all ease-in duration-500">
+        <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[400px] transition-all ease-in duration-500">
           <li className="mx-4 my-6 md:my-0">
             <a href="#" className="text-xl hover:text-green-500 duration-500"><NavLink to="/">Home</NavLink></a>
           </li>
