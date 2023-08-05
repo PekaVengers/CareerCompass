@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import UserDetails
 from .serializers import UserDetailsSerializer
+from .utils import get_resources
 
 class IndexView(APIView):
   def get(self, request):
@@ -28,3 +29,9 @@ class StoreUserInfo(APIView):
             serializer.save()
             return Response({"success", message}, status=status.HTTP_200_OK)
         return Response(serializer.errors)
+
+class ResourcesView(APIView):
+    def get(self, request):
+        role = request.GET.get("role")
+        resources = get_resources(role)
+        return Response(resources, status=status.HTTP_200_OK)
