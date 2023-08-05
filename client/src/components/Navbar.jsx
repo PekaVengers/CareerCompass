@@ -27,8 +27,6 @@ export default function Navbar() {
           <li className="mx-4 my-6 md:my-0">
             <a href="#" className="text-xl hover:text-green-500 duration-500"><NavLink to="/roadmap">Roadmap</NavLink></a>
           </li>
-
-
         </ul>
       </div>
     </div>
