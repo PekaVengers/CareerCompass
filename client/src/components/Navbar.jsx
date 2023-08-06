@@ -13,8 +13,6 @@ export default function Navbar() {
   useEffect(() => {
     setIsLoggedIn(isAuthenticated);
   }, [location.pathname, isAuthenticated])
-  console.log(isLoggedIn);
-  console.log("isAuthorized", isAuthenticated);
 
   return (
     <div>
