@@ -27,6 +27,15 @@ export default function Navbar() {
           <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/">Home</NavLink>
           </li>
+          <li className="mx-4 my-6 md:my-0">
+            <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
+          </li>
+          {
+            isLoggedIn && 
+            <li className="mx-4 my-6 md:my-0">
+            <NavLink className="text-xl hover:text-green-500 duration-500" to="/profile">Profile</NavLink>
+          </li>
+          }
           {
             !isLoggedIn && 
             <li className="mx-4 my-6 md:my-0">
@@ -39,15 +48,6 @@ export default function Navbar() {
             <LogoutButton />
           </li>
           }
-          {
-            isLoggedIn && 
-            <li className="mx-4 my-6 md:my-0">
-            <NavLink className="text-xl hover:text-green-500 duration-500" to="/profile">Profile</NavLink>
-          </li>
-          }
-          <li className="mx-4 my-6 md:my-0">
-            <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
-          </li>
         </ul>
       </div>
     </div>

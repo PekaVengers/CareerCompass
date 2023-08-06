@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import formBg from "../assets/formbg.png"
 import formBg1 from "../assets/formbg1.png"
 
-export default function CollectInfo() {
+export default function CollectInfo({form}) {
   const [step, setStep] = useState(0);
   const [showError, setShowError] = useState(false);
   const [currentVal, setCurrentVal] = useState("");
@@ -26,7 +26,7 @@ export default function CollectInfo() {
 
   return (
     <div className="h-[812px] flex flex-col" style={step === 0 ? { backgroundImage: `url(${formBg})`, backgroundSize: "cover" } : { backgroundImage: `url(${formBg1})`, backgroundSize: "cover" }}>
-      <Form method="post">
+      <Form method="post" ref={form}>
         {
           <div className="flex gap-4 ml-[117px] mt-[323px] text-3xl mb-1" style={step != 0 ? { display: "None" } : {}}>
             <div>Let&apos;s go over some of your basic information.</div>
@@ -39,7 +39,7 @@ export default function CollectInfo() {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your name?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="name" name="name" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="name" name="name" type="text" />
                 </div>
               </div>
             </label>
@@ -53,7 +53,7 @@ export default function CollectInfo() {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your interests?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
                 </div>
               </div>
             </label>
@@ -67,7 +67,7 @@ export default function CollectInfo() {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your strengths?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
                 </div>
               </div>
             </label>
@@ -81,7 +81,7 @@ export default function CollectInfo() {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your aspiration?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
                 </div>
               </div>
             </label>
@@ -95,7 +95,7 @@ export default function CollectInfo() {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div> What is your education level?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="education" name="education" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="education" name="education" type="text" />
                 </div>
               </div>
             </label>
