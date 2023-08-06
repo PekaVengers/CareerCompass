@@ -7,35 +7,45 @@ import bookmark from "../assets/bookmark.svg";
 import book from "../assets/book.svg";
 import yt from "../assets/yt.png";
 import roadmap from "../assets/roadmap.png"
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Profile() {
   const { user, isAuthenticated, isLoading } = useAuth0();
-
-  if (isLoading) {
-    return <div>Loading...</div>;
+  const navigate = useNavigate();
+  const [userDetails, setUserDetails] = useState(null);
+  
+  useEffect(() => {
+    async function getUserDetails() {
+      const res = await axios.get(`http://127.0.0.1:8000/api/user-info?email=${user.email}`);
+      if (res.data?.error) {
+        console.log("Error");
+      } else {
+        setUserDetails(res.data);
+      }
+    }
+    if (user) {
+      getUserDetails();
+    }
+  }, [user, isAuthenticated]);
+  console.log(userDetails);
+ 
+  if (isLoading || !isAuthenticated) {
+    return <div>Loading...</div>
   }
-
-  // return (
-  //   isAuthenticated && (
-  //     <div>
-  //       <img src={user.picture} alt={user.name} />
-  //       <h2>{user.name}</h2>
-  //       <p>{user.email}</p>
-  //     </div>
-  //   )
-  // )
 
   return (
     <div className="flex mb-[10rem]">
       <div className="col-1 max-w-[26.9375rem] max-h-[54rem] ml-[17.5rem] mt-[5.1875rem] mr-[2.875rem]">
         <Sidebar
-          img={profileImg}
-          name="Name"
-          email="Email"
-          location="Location"
-          interest="Interest"
-          aspiration="Aspiration"
-          education="Education Level"
+          img={user.picture}
+          name={user.name}
+          email={user.email}
+          strength={userDetails?.strength}
+          interest={userDetails?.interest}
+          aspiration={userDetails?.aspiration}
+          education={userDetails?.education}
         />
       </div>
       <div className="col-2 pl-8 mt-[5.1875rem] mr-[11.25rem]">
