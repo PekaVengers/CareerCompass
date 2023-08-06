@@ -21,7 +21,7 @@ export default function Sidebar(props) {
                         </div><div className="aspiration bg-[#D9FEDC] text-xl rounded-2xl p-[1.375rem] mb-[1.5rem]">
                             <span className="font-bold">Aspiration:</span> {props.aspiration}
                         </div><div className="education bg-[#D9FEDC] text-xl rounded-2xl p-[1.375rem] mb-[1.5rem]">
-                            <span className="font-bold">Educaton Level:</span> {props.education}
+                            <span className="font-bold">Education Level:</span> {props.education}
                         </div>
                     </>
                 }
