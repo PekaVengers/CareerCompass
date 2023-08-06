@@ -37,6 +37,9 @@ export default function Profile() {
           aspiration="Aspiration"
           education="Education Level"
         />
+        <div className="flex justify-center items-center">
+        <button className="bg-green-600 px-8 py-4 text-white rounded-2xl font-semibold">Update</button>
+        </div>
       </div>
       <div className="col-2 pl-8 mt-[5.1875rem] mr-[11.25rem]">
         <div className="bookmark flex">
@@ -52,7 +55,7 @@ export default function Profile() {
             <div className="flex gap-10">
               <div className="text-3xl mt-6 font-bold">SOFTWARE ENGINEER - ROADMAP</div>
               <div className="mt-6">
-                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">View More</button>
+                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">View All</button>
               </div>
             </div>
             <RoadmapStep
@@ -85,7 +88,7 @@ export default function Profile() {
             <div className="flex">
               <div className="text-3xl font-bold flex items-center">SOFTWARE ENGINEER - BOOKS</div>
               <div className="mt-1">
-                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[14rem]">View More</button>
+                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[14rem]">View All</button>
               </div>
             </div>
             <Card
@@ -105,7 +108,7 @@ export default function Profile() {
             <div className="flex">
               <div className="text-3xl font-bold flex items-center">SOFTWARE ENGINEER - YOUTUBE</div>
               <div className="mt-1">
-                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[11rem]">View More</button>
+                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[11rem]">View All</button>
               </div>
             </div>
             <Card
