@@ -81,7 +81,7 @@ export default function RoadMap() {
     <div className="">
       {hasData || actionData ? (
         actionData ?
-          <div className="p-6">
+          <div className="p-6 h-[74vh]">
             <div className="text-lg font-semibold mb-4 px-20">
               We&apos;re thrilled to help you explore exciting career options based on your interests and strengths.
             </div>
