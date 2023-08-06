@@ -36,6 +36,5 @@ class UserInfo(APIView):
 class ResourcesView(APIView):
     def get(self, request):
         role = request.GET.get("role")
-        print(role)
         resources = get_resources()
         return Response(resources, status=status.HTTP_200_OK)
