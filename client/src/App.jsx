@@ -3,7 +3,6 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile, {action as profileAction} from "./pages/Profile";
 import RoadMap, {action as roadmapAction} from "./pages/Roadmap";
-import RoadmapDetail from "./pages/RoadmapDetail";
 import Loader from "./components/Loader";
 import RoadmapDetail, {loader as roadmapDetailLoader} from "./pages/RoadmapDetail";
 import BookmarksLayout from "./components/BookmarksLayout";
