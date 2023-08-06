@@ -16,7 +16,6 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Home />} index />
     <Route action={profileAction} element={<Profile />} path="profile" />
     <Route action={roadmapAction} element={<RoadMap />} path="roadmap" />
-    <Route element={<RoadmapDetail />} path="roadmap-detail" />
     <Route element={<Loader />} path="loading" />
     <Route element={<RoadmapDetail />} loader={roadmapDetailLoader} path="roadmap-detail" />
     <Route element={<BookmarksLayout />} path="bookmarks">
