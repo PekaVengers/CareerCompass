@@ -9,15 +9,15 @@ export default function Card(props){
         <div className="container flex max-h-[255px] mb-[27px] rounded-3xl">
             {props.type === 'price' ? (
                 <div className="image">
-                <img className="rounded-l"  src={cardbook} alt="" />
+                <img className="rounded-l max-h-[255px] w-[100%]"  src={cardbook} alt="" />
                 </div>
             ) : props.type === 'yt' ? (
                     <div className="image">
-                        <img className = "rounded-l" src={ytimg} alt="" />
+                        <img className = "rounded-l h-[115px] w-[100%]" src={ytimg} alt="" />
                     </div>
             ) : null}
             
-            <div className="content text-lg p-1 flex-col gap-4 bg-[#D9FEDC] rounded-r w-[100%]">
+            <div className="content text-lg px-3 py-1 flex-col gap-4 bg-[#D9FEDC] rounded-r w-[100%]">
                 <div className="title font-bold flex justify-between">
                     {props.title}
                     <img className="w-[40px] h-[40px]" src={bookmark} alt="" />
