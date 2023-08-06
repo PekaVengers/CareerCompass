@@ -1,4 +1,11 @@
+import axios from "axios";
 import Card from "../../components/Card";
+
+export async function loader() {
+  const res = axios.get("http://localhost:8000/api/bookmarks?type=books")
+  return res.data;
+}
+
 export default function BookBM() {
   return (
     
