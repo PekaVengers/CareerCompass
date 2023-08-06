@@ -102,10 +102,10 @@ export default function RoadMap() {
               ))}
             </div>
           </div>
-          : <div className="m-10">
-            <Form method="post">
-                <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold mx-10" type="submit">Find Roadmap based on your Details</button>
-                <button className="bg-yellow-400 px-4 py-2 text-white rounded-2xl font-semibold mx-10" onClick={handleUpdate} type="button">Update your Details</button>
+          : <div className="h-[74vh] w-[100vw]">
+            <Form method="post" className="h-[100%] flex flex-col items-center justify-center">
+                <button className="bg-green-600 h-[3rem] w-[20rem] rounded-2xl font-semibold my-[1rem] " type="submit">Find Roadmap based on your Details</button>
+                <button className="bg-yellow-400 h-[3rem] w-[20rem] rounded-2xl font-semibold my-[1rem] " onClick={handleUpdate} type="button">Update your Details</button>
             </Form>
           </div>
       ) : (
