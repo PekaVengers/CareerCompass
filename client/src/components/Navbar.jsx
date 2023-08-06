@@ -28,6 +28,9 @@ export default function Navbar() {
           <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
           </li>
+          <li className="mx-4 my-6 md:my-0">
+            <NavLink className="text-xl hover:text-green-500 duration-500" to="/bookmarks">BookMarks</NavLink>
+          </li>
           {
             isLoggedIn && 
             <li className="mx-4 my-6 md:my-0">
