@@ -43,14 +43,13 @@ load_dotenv()
 def get_resources(role="Software Engineer"):
   input_text = f'''
 Hey Bard,
-I'm interested in a career as a {role}. Can you provide me with 3 YouTube channels with name and link and 3 books with name and link that would be helpful for me to pursue this career with their links? It should be json format where first 3 columns will be youtube : resource and then book : resource
+I'm interested in a career as a {role}. Can you provide me with 3 YouTube channels with name, description and link and 3 books with name, description and link that would be helpful for me to pursue this career with their links? It should be json format where first 3 columns will be youtube : resource and then book : resource
 Please Please include both the links and names
 Thanks,
 '''
   res = Bard().get_answer(input_text)['content']
+  print("Response from bard is ", res)
   start_index = res.find("```") + 7
   end_index = res.rfind("```")
   res_data = json.loads(res[start_index:end_index])
   return res_data
-
-get_resources()

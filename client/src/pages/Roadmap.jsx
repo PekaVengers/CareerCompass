@@ -58,7 +58,7 @@ export default function RoadMap() {
   }, [user, isAuthenticated, setHasData, setSearchParams])
 
   function handleClick(index) {
-    navigate("/roadmap-detail", {state: {roleInfo: actionData[index]}});
+    navigate(`/roadmap-detail?role=${actionData[index].name}`, {state: {roleInfo: actionData[index]}});
   }
 
   if (loading) {

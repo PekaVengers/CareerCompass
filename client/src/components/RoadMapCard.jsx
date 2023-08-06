@@ -3,7 +3,6 @@ import roadmapImg from "../assets/roadmap.png";
 import bookmark from "../assets/bookmark.svg";
 
 export default function RoadMapCard({ roadMapSteps }) {
-  console.log(roadMapSteps)
   return (
     <div className="roadmap mt-[55px] max-w-[700px]">
       <div className="title-con flex mb-[55px]">
