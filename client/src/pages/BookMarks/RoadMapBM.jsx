@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import RoadMapCard from "../../components/RoadMapCard";
-
+import NoBookMarks from "../../components/NoBookMarks";
 
 export async function loader() {
   const res = await axios.get("http://localhost:8000/api/bookmarks?type=roadmap");
@@ -35,7 +35,7 @@ export default function RoadMapBM() {
             )
           })}
       </div>
-      : <div>No BookMarks to show</div>
+      : <NoBookMarks />
         }
     </div>
   );

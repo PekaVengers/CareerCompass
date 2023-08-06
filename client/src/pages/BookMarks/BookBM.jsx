@@ -3,6 +3,8 @@ import Card from "../../components/Card";
 import { useLoaderData } from "react-router";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import NoBookMarks from "../../components/NoBookMarks";
+
 
 export async function loader() {
   const res = await axios.get("http://localhost:8000/api/bookmarks?type=books");
@@ -40,7 +42,7 @@ export default function BookBM() {
               ))
             }
           </div>
-          : <div>No Bookmarks to show!</div>
+          : <NoBookMarks />
       }
     </div>
 
