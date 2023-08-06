@@ -70,7 +70,7 @@ export default function RoadmapDetail() {
   }
 
   return (
-    <div className="flex mt-[90px] ml-[216px] mb-[117px] mr-[174px] h-[1991px]">
+    <div className="flex mt-[90px] ml-[216px] mr-[174px] h-[1991px]">
       <div className="col-1">
         <div className="flex-shrink-0 max-w-[80%]">
           <div className="bg-green-200 rounded-3xl p-4 shadow-md">
@@ -140,7 +140,6 @@ export default function RoadmapDetail() {
               <div className="flex items-center">FreeCodeCamp</div>
             </div>
           </div>
-
         </div>
       </div>
     </div >
