@@ -57,8 +57,8 @@ export default function RoadMap() {
     getUserData()
   }, [user, isAuthenticated, setHasData, setSearchParams])
 
-  function handleClick() {
-    navigate("/roadmap-detail", {state: {roadmap: actionData.roadmap}});
+  function handleClick(index) {
+    navigate("/roadmap-detail", {state: {roleInfo: actionData[index]}});
   }
 
   if (loading) {
@@ -78,12 +78,12 @@ export default function RoadMap() {
             Here are some suggested career paths that align with your profile.
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 px-20">
-            {actionData.map((role) => (
+            {actionData.map((role, index) => (
               <div key={role.name} className="flex-shrink-0">
                 <div className="bg-green-200 rounded-3xl p-4 shadow-md">
                   <h3 className="text-xl font-semibold my-5">{role.name}</h3>
                   <div className="mt-2">{role.description.length > 300 ? role.description.slice(0, 300) + "..." : role.description}</div>
-                  <button onClick={handleClick} to="roadmap-detail" className="mt-7 bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">
+                  <button onClick={() => {handleClick(index)}} to="roadmap-detail" className="mt-7 bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">
                       See More
                   </button>
                 </div>
