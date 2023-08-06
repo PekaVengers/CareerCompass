@@ -34,37 +34,38 @@ export default function RoadmapDetail() {
     youtube: { 0: false, 1: false, 2: false },
   });
 
-  function handleRoadMapBookmark() {
+  async function handleRoadMapBookmark() {
     if (user) {
       if (areBookMarked.roadmap) {
-        axios.delete(`http://localhost:8000/api/bookmarks?role=${roleInfo.name}&email=${user.email}&type=roadmap`);
+        await axios.delete(`http://localhost:8000/api/bookmarks?name=${roleInfo.name}&email=${user.email}&type=roadmap`);
       } else {
-        axios.post(`http://localhost:800/api/bookmarks?type=roadmap`, { ...roleInfo, email: user.email });
+        const res = await axios.post(`http://localhost:8000/api/bookmarks`, { ...roleInfo, email: user.email, type:"roadmap" });
+        console.log(res.data)
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, roadmap: !prevBookMarks.roadmap }));
     }
   }
 
-  function handleBookBM(ind) {
+  async function handleBookBM(ind) {
     console.log(ind)
     if (user) {
-      if (areBookMarked.roadmap) {
-        axios.delete(`http://localhost:8000/api/bookmarks?role=${books[ind].name}&email=${user.email}&type=book`);
+      if (areBookMarked.books[ind]) {
+        await axios.delete(`http://localhost:8000/api/bookmarks?name=${books[ind].name}&email=${user.email}&type=book`);
       } else {
-        axios.post(`http://localhost:800/api/bookmarks?type=book`, { ...books[ind], email: user.email });
+        await axios.post(`http://localhost:8000/api/bookmarks`, { ...books[ind], email: user.email, type:"book" });
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, books: { ...prevBookMarks.books, [ind]: !prevBookMarks.books[ind] } }));
     }
   }
 
-  function handleYoutubeBM(ind) {
+  async function handleYoutubeBM(ind) {
     if (user) {
-      if (areBookMarked.roadmap) {
-        axios.delete(`http://localhost:8000/api/bookmarks?role=${youtube[ind].name}&email=${user.email}&type=youtube`);
+      if (areBookMarked.youtube[ind]) {
+        await axios.delete(`http://localhost:8000/api/bookmarks?name=${youtube[ind].name}&email=${user.email}&type=youtube`);
       } else {
-        axios.post(`http://localhost:800/api/bookmarks?type=youtube`, { ...youtube[ind], email: user.email });
+        await axios.post(`http://localhost:8000/api/bookmarks`, { ...youtube[ind], email: user.email, type:"youtube" });
       }
-      setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, books: { ...prevBookMarks.books, [ind]: !prevBookMarks.books[ind] } }));
+      setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, youtube: { ...prevBookMarks.youtube, [ind]: !prevBookMarks.youtube[ind] } }));
     }
   }
 
