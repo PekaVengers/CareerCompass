@@ -9,11 +9,14 @@ class IndexView(APIView):
   def get(self, request):
     return Response("Home Page", status=status.HTTP_200_OK)
 
-class StoreUserInfo(APIView):
+class UserInfo(APIView):
     def get(self, request):
         email = request.GET.get("email") 
-        dataExists = UserDetails.objects.filter(email=email).exists()
-        return Response({"dataExists": dataExists})
+        if UserDetails.objects.filter(email=email).exists():
+            user_data = UserDetails.objects.get(email=email)
+            serializer = UserDetailsSerializer(user_data)
+            return Response(serializer.data)
+        return Response({"error": "User Not Found"})
 
     def post(self, request):
         email = request.data.get("email")
