@@ -26,7 +26,7 @@ export default function Profile() {
   // )
 
     return (
-      <div className="mb-[75.625rem] flex">
+      <div className="flex mb-[10rem]">
         <div className="col-1 max-w-[26.9375rem] max-h-[54rem] ml-[17.5rem] mt-[5.1875rem] mr-[2.875rem]">
           <Sidebar 
           img = {profileImg}
@@ -38,7 +38,7 @@ export default function Profile() {
           education = "Education Level"
           />
         </div>
-        <div className="col-2 pl-8 mt-[5.1875rem]">
+        <div className="col-2 pl-8 mt-[5.1875rem] mr-[11.25rem]">
           <div className="bookmark flex">
           <img className="w-[3.75rem] h-[3.75rem]" src={bookmark} alt="" />
           
@@ -93,12 +93,13 @@ export default function Profile() {
             <div className="">
               <img src={yt} alt="" />
             </div>
-            <div className="yt-con flex flex-col gap-4">
+            <div className="yt-con flex flex-col gap-4 w-[785px]">
             <div className="text-3xl font-bold flex items-center">SOFTWARE ENGINEER - YOUTUBE</div>
             <Card 
                 title="Complete Web Developer Bootcamp"
                 content="Web Development Tutorials"
                 type="yt"
+                style ={{width : "557px"}}
                 />
                 </div>
           </div>
