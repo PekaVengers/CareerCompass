@@ -6,7 +6,7 @@ import bookmark from "../assets/bookmark.svg";
 import book from "../assets/book.svg";
 import yt from "../assets/yt.png";
 import roadmap from "../assets/roadmap.png"
-import { useNavigate, useSearchParams, useActionData, useNavigation } from "react-router-dom";
+import { useNavigate, useSearchParams, useActionData, useNavigation, Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CollectInfo from "../components/CollectInfo";
@@ -91,10 +91,10 @@ export default function Profile() {
           <div className="steps mt-8 flex gap-4">
             <div className="mt-[11px]"><img src={roadmap} alt="" /></div>
             <div className="step-con flex flex-col gap-5">
-              <div className="flex gap-10">
+              <div className="flex items-center gap-10">
                 <div className="text-3xl mt-6 font-bold">ROADMAPS</div>
                 <div className="mt-6">
-                  <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">View All</button>
+                  <Link to="/bookmarks" className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold">View All</Link>
                 </div>
               </div>
               <RoadmapStep
@@ -127,7 +127,7 @@ export default function Profile() {
               <div className="flex">
                 <div className="text-3xl font-bold flex items-center">BOOKS</div>
                 <div className="mt-1">
-                  <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[3rem]">View All</button>
+                  <Link to="/bookmarks/books" className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[3rem]">View All</Link>
                 </div>
               </div>
               <Card
@@ -144,10 +144,10 @@ export default function Profile() {
               <img src={yt} alt="" />
             </div>
             <div className="yt-con flex flex-col gap-4 w-[785px]">
-              <div className="flex">
+              <div className="flex items-center">
                 <div className="text-3xl font-bold flex items-center">YOUTUBE</div>
                 <div className="mt-1">
-                  <button className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[3rem]">View All</button>
+                  <Link to="/bookmarks/youtube" className="bg-green-600 px-4 py-2 text-white rounded-2xl font-semibold ml-[3rem]">View All</Link>
                 </div>
               </div>
               <Card
