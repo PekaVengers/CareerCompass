@@ -8,7 +8,7 @@ import RoadmapDetail, {loader as roadmapDetailLoader} from "./pages/RoadmapDetai
 import BookmarksLayout from "./components/BookmarksLayout";
 import BookBM, {loader as bookBMLoader} from "./pages/BookMarks/BookBM";
 import RoadMapBM, {loader as roadmapBMLoader}  from "./pages/BookMarks/RoadMapBM";
-import YoutubeBM from "./pages/BookMarks/YoutubeBM";
+import YoutubeBM, {loader as youtubeBMLoader} from "./pages/BookMarks/YoutubeBM";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -21,7 +21,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<BookmarksLayout />} path="bookmarks">
       <Route element={<RoadMapBM />} loader={roadmapBMLoader} index />
       <Route element={<BookBM />} loader={bookBMLoader} path="books" />
-      <Route element={<YoutubeBM />} path="youtube" />
+      <Route element={<YoutubeBM />} loader={youtubeBMLoader} path="youtube" />
     </Route>
   </Route>
 ));
