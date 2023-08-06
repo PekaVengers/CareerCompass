@@ -1,8 +1,12 @@
 import { useLocation } from "react-router";
 import roadmap from "../assets/roadmap.png";
 import bookmark from "../assets/bookmark.svg";
-import books from "../assets/books.png";
+import books from "../assets/book.svg";
 import yt from "../assets/yt.png"
+import community from "../assets/community.png"
+import hashnode from "../assets/hashnode.png"
+import freecodecamp from "../assets/freecodecamp.png"
+import stackoveflow from "../assets/stackoverflow.png"
 import RoadmapStep from "../components/RoadmapStep";
 import Card from "../components/Card";
 
@@ -44,9 +48,9 @@ export default function RoadmapDetail() {
       </div>
       <div className="col-2 ml-[57px]">
         <div className="book">
-          <div className="title flex gap-2 mb-[39px]">
-            <img src={books} alt="" />
-            <div className="text-3xl font-bold">REFERNCE BOOKS</div>
+          <div className="title flex gap-3 mb-[39px]">
+            <img className="w-[65px] h-[65px]" src={books} alt="" />
+            <div className="text-3xl font-bold mt-[9px]">REFERNCE BOOKS</div>
           </div>
           <Card 
           title = "Full Stack Web Development For Beginners"
@@ -69,7 +73,7 @@ export default function RoadmapDetail() {
           />
         </div>
         <div className="yt">
-          <div className="title flex gap-2 mb-[39px]">
+          <div className="title flex gap-3 mb-[39px]">
             <img src={yt} alt="" />
             <div className="text-3xl font-bold">YOUTUBE CHANNELS</div>
           </div>
@@ -87,7 +91,23 @@ export default function RoadmapDetail() {
           type = "yt"
           />
         </div>
-        <div className="community">
+        <div className="community mt-[49px]">
+          <div className="title flex gap-3">
+            <img src={community} alt="" />
+            <div className="text-3xl font-bold mt-[12px]">COMMUNITIES TO JOIN</div>
+          </div>
+          <div className="list bg-[#D9FEDC] rounded-2xl p-4">
+            <div className="list-1 flex mb-8 gap-3">
+              <img src={stackoveflow} alt="" />
+              <div className="flex items-center">Stack Overflow</div>
+            </div><div className="list-2 flex mb-8 gap-3">
+              <img src={hashnode} alt="" />
+              <div className="flex items-center">Hashnode</div>
+            </div><div className="list-3 flex gap-3">
+              <img src={freecodecamp} alt="" />
+              <div className="flex items-center">FreeCodeCamp</div>
+            </div>
+          </div>
 
         </div>
       </div>

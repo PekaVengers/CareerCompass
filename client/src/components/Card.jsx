@@ -17,7 +17,7 @@ export default function Card(props){
                     </div>
             ) : null}
             
-            <div className="content text-lg p-1 flex-col gap-4 bg-[#D9FEDC] rounded-r">
+            <div className="content text-lg p-1 flex-col gap-4 bg-[#D9FEDC] rounded-r w-[100%]">
                 <div className="title font-bold flex justify-between">
                     {props.title}
                     <img className="w-[40px] h-[40px]" src={bookmark} alt="" />
