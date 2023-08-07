@@ -12,13 +12,13 @@ export default function BookmarksNav() {
 
       <div className="flex ml-[9.5625rem] gap-10 mt-[2.625rem]">
           <div className="roadmap text-3xl">
-          <NavLink to=".">ROADMAPS</NavLink>
+          <NavLink end className={({isActive}) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to=".">ROADMAPS</NavLink>
           </div>
           <div className="videos text-3xl">
-          <NavLink to="youtube">YOUTUBE</NavLink>
+          <NavLink className={({isActive}) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="youtube">YOUTUBE</NavLink>
           </div>
           <div className="books text-3xl">
-          <NavLink to="books">BOOKS</NavLink>
+          <NavLink className={({isActive}) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="books">BOOKS</NavLink>
           </div>
       </div>
     </div>
