@@ -49,6 +49,7 @@ export default function RoadMap() {
             return prevParams;
           });
         } else {
+          console.log("Setting Has Data to True");
           setHasData(true);
         }
       }
@@ -56,7 +57,7 @@ export default function RoadMap() {
     } 
   
     getUserData()
-  }, [user, isAuthenticated, setHasData, setSearchParams]);
+  }, [user, isAuthenticated, setHasData]);
 
   function handleClick(index) {
     navigate("/roadmap-detail", { state: { roleInfo: actionData[index] } });
@@ -70,7 +71,7 @@ export default function RoadMap() {
     });
     setHasData(false);
   }
-
+  console.log("Has Data", hasData, actionData);
   if (loading) {
     return (
       <div>Loading...</div>
