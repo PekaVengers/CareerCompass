@@ -64,15 +64,15 @@ class BookMarkView(APIView):
         if bookmark_type == "roadmap":
             steps = request.data.get("roadmap")
             role = request.data.get("name")
-            RoadMap.objects.create(role=role, step1=steps[0], step2=steps[1], step3=steps[2], step4=steps[3], step5=steps[4], user=user)
+            RoadMap.objects.get_or_create(role=role, step1=steps[0], step2=steps[1], step3=steps[2], step4=steps[3], step5=steps[4], user=user)
         else:
             name = request.data.get("name")
             link = request.data.get("link")
             description = request.data.get("description")
             if bookmark_type == "book":
-                Book.objects.create(user=user, name=name, description=description, link=link)
+                Book.objects.get_or_create(user=user, name=name, description=description, link=link)
             else:
-                Youtube.objects.create(user=user, name=name, description=description, link=link)
+                Youtube.objects.get_or_create(user=user, name=name, description=description, link=link)
         return Response({"success": "Bookmark Saved"})            
 
     def delete(self, request):
