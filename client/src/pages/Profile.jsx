@@ -10,6 +10,8 @@ import { useSearchParams, useActionData, useNavigation, Link } from "react-route
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CollectInfo from "../components/CollectInfo";
+import {BASE_URL} from "../utils/baseURL";
+
 
 export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
@@ -17,7 +19,7 @@ export async function action({ request }) {
 
   const email = searchParams.get("email");
   formData.append("email", email);
-  const res = await axios.post("http://127.0.0.1:8000/api/user-info", formData);
+  const res = await axios.post(`${BASE_URL}/api/user-info`, formData);
   return res.data;
 }
 
@@ -42,7 +44,7 @@ export default function Profile() {
 
   useEffect(() => {
     async function getUserDetails() {
-      const res = await axios.get(`http://127.0.0.1:8000/api/user-info?email=${user.email}`);
+      const res = await axios.get(`${BASE_URL}/api/user-info?email=${user.email}`);
       if (res.data?.error) {
         console.log("Error");
       } else {
@@ -50,15 +52,15 @@ export default function Profile() {
       }
     }
     async function getUserBookMarks() {
-      const resBook = await axios.get(`http://localhost:8000/api/bookmarks?type=books&email=${user.email}`);
+      const resBook = await axios.get(`${BASE_URL}/api/bookmarks?type=books&email=${user.email}`);
       if (resBook.data.length > 0) {
         setCurrentBookmarks(prevBookmarks => ({ ...prevBookmarks, book: resBook.data[resBook.data.length - 1] }));
       }
-      const resRoadmap = await axios.get(`http://localhost:8000/api/bookmarks?type=roadmap&email=${user.email}`);
+      const resRoadmap = await axios.get(`${BASE_URL}/api/bookmarks?type=roadmap&email=${user.email}`);
       if (resRoadmap.data.length > 0) {
         setCurrentBookmarks(prevBookmarks => ({ ...prevBookmarks, roadmap: resRoadmap.data[resRoadmap.data.length - 1] }));
       }
-      const resYoutube = await axios.get(`http://localhost:8000/api/bookmarks?type=youtube&email=${user.email}`);
+      const resYoutube = await axios.get(`${BASE_URL}/api/bookmarks?type=youtube&email=${user.email}`);
       if (resYoutube.data.length > 0) {
         setCurrentBookmarks(prevBookmarks => ({ ...prevBookmarks, youtube: resYoutube.data[resYoutube.data.length - 1] }));
       }

@@ -3,6 +3,8 @@ import Card from "../../components/Card";
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import NoBookMarks from "../../components/NoBookMarks";
+import {BASE_URL} from "../../utils/baseURL";
+
 
 export default function YoutubeBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);
@@ -11,7 +13,7 @@ export default function YoutubeBM() {
 
   useEffect(() => {
     async function fetchBookMarks() {
-      const res = await axios.get(`http://localhost:8000/api/bookmarks?type=youtube&email=${user.email}`);
+      const res = await axios.get(`${BASE_URL}/api/bookmarks?type=youtube&email=${user.email}`);
       setCurrentBookmarks(res.data);
     }
 
@@ -24,8 +26,8 @@ export default function YoutubeBM() {
 
 
   async function handleYoutubeBM(ind) {
-    await axios.delete(`http://localhost:8000/api/bookmarks?name=${currentBookmarks[ind].name}&email=${user.email}&type=youtube`);
-    const res = await axios.get(`http://localhost:8000/api/bookmarks?type=youtube&email=${user.email}`);
+    await axios.delete(`${BASE_URL}/api/bookmarks?name=${currentBookmarks[ind].name}&email=${user.email}&type=youtube`);
+    const res = await axios.get(`${BASE_URL}/api/bookmarks?type=youtube&email=${user.email}`);
     setCurrentBookmarks(res.data);
   }
 
