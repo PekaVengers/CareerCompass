@@ -10,6 +10,7 @@ import social from "../assets/images/social.png";
 import teamAvatar1 from "../assets/images/teamAvatar1.png";
 import teamAvatar2 from "../assets/images/teamAvatar2.png";
 import contactSvg from "../assets/images/contactSvg.png";
+import LoginButton from "../components/LoginButton";
 
 export default function Home() {
   return (
@@ -24,9 +25,7 @@ export default function Home() {
             </h5>
           </div>
           <div className="buttonMainBanner">
-          <button className="bg-[#43B14B] text-[1.2rem] py-[0.5rem] px-[1rem] text-white rounded-[0.7rem] font-inter">
-            Register Here
-          </button>
+            <LoginButton text={"Register Now"} />
           </div>
         </div>
       </div>
