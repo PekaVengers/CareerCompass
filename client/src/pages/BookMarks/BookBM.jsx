@@ -3,7 +3,7 @@ import Card from "../../components/Card";
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import NoBookMarks from "../../components/NoBookMarks";
-import BASE_URL from "../../utils/baseURL";
+import {BASE_URL} from "../../utils/baseURL";
 
 export default function BookBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);

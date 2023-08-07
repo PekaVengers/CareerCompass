@@ -10,7 +10,7 @@ import { useSearchParams, useActionData, useNavigation, Link } from "react-route
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CollectInfo from "../components/CollectInfo";
-import BASE_URL from "../../utils/baseURL";
+import {BASE_URL} from "../utils/baseURL";
 
 
 export async function action({ request }) {

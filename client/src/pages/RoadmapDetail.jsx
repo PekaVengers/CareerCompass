@@ -11,7 +11,7 @@ import { getRoleData } from "../utils/getRoleData";
 import RoadMapCard from "../components/RoadMapCard";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import BASE_URL from "../utils/baseURL";
+import {BASE_URL} from "../utils/baseURL";
 
 export async function loader({ request }) {
   const searchParams = new URL(request.url).searchParams;

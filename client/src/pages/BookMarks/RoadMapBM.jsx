@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import RoadMapCard from "../../components/RoadMapCard";
 import NoBookMarks from "../../components/NoBookMarks";
-import BASE_URL from "../../utils/baseURL";
+import {BASE_URL} from "../../utils/baseURL";
 
 export async function loader() {
   const res = await axios.get(`${BASE_URL}/api/bookmarks?type=roadmap`);

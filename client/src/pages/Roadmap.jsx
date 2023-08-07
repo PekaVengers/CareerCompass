@@ -6,7 +6,7 @@ import { useSearchParams, useActionData, Form } from "react-router-dom";
 import { getRoleData } from "../utils/getRoleData";
 // import getRoadMaps from "../utils/getRoadmaps";
 import { useNavigate } from "react-router-dom";
-import BASE_URL from "../../utils/baseURL";
+import {BASE_URL} from "../utils/baseURL";
 
 
 export async function action({ request }) {
