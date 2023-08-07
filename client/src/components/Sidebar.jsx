@@ -1,5 +1,4 @@
 export default function Sidebar(props) {
-    console.log(props.img);
     return (
         <>
             <div className="profile h-[14.375rem] w-[14.375rem] rounded-full flex justify-center items-center mb-[4.25rem] mx-[6.25rem]">

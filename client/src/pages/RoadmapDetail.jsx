@@ -17,7 +17,6 @@ export async function loader({ request }) {
   const searchParams = new URL(request.url).searchParams;
   const roleName = searchParams.get("role");
   const res = await axios.get(`${BASE_URL}/api/resources?role=${roleName}`)
-  console.log("Loading res", res.data);
   return { resources: res.data };
 }
 
@@ -40,15 +39,13 @@ export default function RoadmapDetail() {
       if (areBookMarked.roadmap) {
         await axios.delete(`${BASE_URL}/api/bookmarks?name=${roleInfo.name}&email=${user.email}&type=roadmap`);
       } else {
-        const res = await axios.post(`${BASE_URL}/api/bookmarks`, { ...roleInfo, email: user.email, type:"roadmap" });
-        console.log(res.data)
+        await axios.post(`${BASE_URL}/api/bookmarks`, { ...roleInfo, email: user.email, type:"roadmap" });
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, roadmap: !prevBookMarks.roadmap }));
     }
   }
 
   async function handleBookBM(ind) {
-    console.log(ind)
     if (user) {
       if (areBookMarked.books[ind]) {
         await axios.delete(`${BASE_URL}/api/bookmarks?name=${books[ind].name}&email=${user.email}&type=book`);

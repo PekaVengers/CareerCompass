@@ -17,8 +17,7 @@ export async function action({ request }) {
   if (shouldSave) {
     const email = searchParams.get("email");
     formData.append("email", email);
-    const res = await axios.post(`${BASE_URL}/api/user-info`, formData);
-    console.log(res);
+    await axios.post(`${BASE_URL}/api/user-info`, formData);
   }
   // const name = formData.get("name");
   // const interest = formData.get("interest");
@@ -51,7 +50,6 @@ export default function RoadMap() {
             return prevParams;
           });
         } else {
-          console.log("Setting Has Data to True");
           setHasData(true);
         }
       }
@@ -73,7 +71,6 @@ export default function RoadMap() {
     });
     setHasData(false);
   }
-  console.log("Has Data", hasData, actionData);
   if (loading) {
     return (
       <div>Loading...</div>
