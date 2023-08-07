@@ -1,6 +1,5 @@
 import axios from "axios";
-import { useLoaderData } from "react-router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import RoadMapCard from "../../components/RoadMapCard";
 import NoBookMarks from "../../components/NoBookMarks";
@@ -11,19 +10,33 @@ export async function loader() {
 }
 
 export default function RoadMapBM() {
-  const loaderData = useLoaderData();
-  const [currentBookmarks, setCurrentBookmarks] = useState(loaderData);
+  const [currentBookmarks, setCurrentBookmarks] = useState([]);
   const { user } = useAuth0();
-  console.log(loaderData);
+  const [loading, setShowLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchBookMarks() {
+      const res = await axios.get(`http://localhost:8000/api/bookmarks?type=roadmap&email=${user.email}`);
+      setCurrentBookmarks(res.data);
+    }
+
+    if (user) {
+      setShowLoading(true);
+      fetchBookMarks();
+      setShowLoading(false);
+    }
+  }, [user]);
+
 
   async function handleRoadMapBookmark(ind) {
     await axios.delete(`http://localhost:8000/api/bookmarks?name=${currentBookmarks[ind].role}&email=${user.email}&type=roadmap`);
-    const res = await axios.get("http://localhost:8000/api/bookmarks?type=roadmap");
+    const res = await axios.get(`http://localhost:8000/api/bookmarks?type=roadmap&email=${user.email}`);
     setCurrentBookmarks(res.data);
   }
 
   return (
-    <div className="mt-[4.9375rem] ml-[13.5rem] flex py-[3.25rem] px-[4.25rem] gap-32">
+    !loading 
+    ? <div className="mt-[4.9375rem] ml-[13.5rem] flex py-[3.25rem] px-[4.25rem] gap-32">
       {
         currentBookmarks.length > 0
 
@@ -38,5 +51,6 @@ export default function RoadMapBM() {
       : <NoBookMarks />
         }
     </div>
+    : <div>Loading...</div>
   );
 }

@@ -43,14 +43,16 @@ class BookMarkView(APIView):
 
     def get(self, request):
         bookmark_type = request.GET.get("type")
+        email = request.GET.get("email")
+        user = UserDetails.objects.get(email=email)
         if bookmark_type == "roadmap":
-            roadmaps = RoadMap.objects.all()
+            roadmaps = RoadMap.objects.filter(user=user)
             serializer = RoadMapSerializer(roadmaps, many=True)
         elif bookmark_type == "books":
-            books = Book.objects.all()
+            books = Book.objects.filter(user=user)
             serializer = BookSerializer(books, many=True)
         else:
-            youtube = Youtube.objects.all()
+            youtube = Youtube.objects.filter(user=user)
             serializer = YoutubeSerializer(youtube, many=True)
 
         return Response(serializer.data)
