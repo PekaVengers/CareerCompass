@@ -3,6 +3,7 @@ import Card from "../../components/Card";
 import { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import NoBookMarks from "../../components/NoBookMarks";
+import BASE_URL from "../../utils/baseURL";
 
 export default function BookBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);
@@ -11,7 +12,7 @@ export default function BookBM() {
 
   useEffect(() => {
     async function fetchBookMarks() {
-      const res = await axios.get(`http://localhost:8000/api/bookmarks?type=books&email=${user.email}`);
+      const res = await axios.get(`${BASE_URL}/api/bookmarks?type=books&email=${user.email}`);
       setCurrentBookmarks(res.data);
     }
 
@@ -23,8 +24,8 @@ export default function BookBM() {
   }, [user]);
 
   async function handleBookBM(ind) {
-    await axios.delete(`http://localhost:8000/api/bookmarks?name=${currentBookmarks[ind].name}&email=${user.email}&type=book`);
-    const res = await axios.get(`http://localhost:8000/api/bookmarks?type=books&email=${user.email}`);
+    await axios.delete(`${BASE_URL}/api/bookmarks?name=${currentBookmarks[ind].name}&email=${user.email}&type=book`);
+    const res = await axios.get(`${BASE_URL}/api/bookmarks?type=books&email=${user.email}`);
     setCurrentBookmarks(res.data);
   }
 

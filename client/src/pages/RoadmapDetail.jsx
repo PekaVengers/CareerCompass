@@ -11,11 +11,12 @@ import { getRoleData } from "../utils/getRoleData";
 import RoadMapCard from "../components/RoadMapCard";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import BASE_URL from "../utils/baseURL";
 
 export async function loader({ request }) {
   const searchParams = new URL(request.url).searchParams;
   const roleName = searchParams.get("role");
-  const res = await axios.get(`http://127.0.0.1:8000/api/resources?role=${roleName}`)
+  const res = await axios.get(`${BASE_URL}/api/resources?role=${roleName}`)
   console.log("Loading res", res.data);
   return { resources: res.data };
 }
@@ -37,9 +38,9 @@ export default function RoadmapDetail() {
   async function handleRoadMapBookmark() {
     if (user) {
       if (areBookMarked.roadmap) {
-        await axios.delete(`http://localhost:8000/api/bookmarks?name=${roleInfo.name}&email=${user.email}&type=roadmap`);
+        await axios.delete(`${BASE_URL}/api/bookmarks?name=${roleInfo.name}&email=${user.email}&type=roadmap`);
       } else {
-        const res = await axios.post(`http://localhost:8000/api/bookmarks`, { ...roleInfo, email: user.email, type:"roadmap" });
+        const res = await axios.post(`${BASE_URL}/api/bookmarks`, { ...roleInfo, email: user.email, type:"roadmap" });
         console.log(res.data)
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, roadmap: !prevBookMarks.roadmap }));
@@ -50,9 +51,9 @@ export default function RoadmapDetail() {
     console.log(ind)
     if (user) {
       if (areBookMarked.books[ind]) {
-        await axios.delete(`http://localhost:8000/api/bookmarks?name=${books[ind].name}&email=${user.email}&type=book`);
+        await axios.delete(`${BASE_URL}/api/bookmarks?name=${books[ind].name}&email=${user.email}&type=book`);
       } else {
-        await axios.post(`http://localhost:8000/api/bookmarks`, { ...books[ind], email: user.email, type:"book" });
+        await axios.post(`${BASE_URL}/api/bookmarks`, { ...books[ind], email: user.email, type:"book" });
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, books: { ...prevBookMarks.books, [ind]: !prevBookMarks.books[ind] } }));
     }
@@ -61,9 +62,9 @@ export default function RoadmapDetail() {
   async function handleYoutubeBM(ind) {
     if (user) {
       if (areBookMarked.youtube[ind]) {
-        await axios.delete(`http://localhost:8000/api/bookmarks?name=${youtube[ind].name}&email=${user.email}&type=youtube`);
+        await axios.delete(`${BASE_URL}/api/bookmarks?name=${youtube[ind].name}&email=${user.email}&type=youtube`);
       } else {
-        await axios.post(`http://localhost:8000/api/bookmarks`, { ...youtube[ind], email: user.email, type:"youtube" });
+        await axios.post(`${BASE_URL}/api/bookmarks`, { ...youtube[ind], email: user.email, type:"youtube" });
       }
       setAreBookMarked(prevBookMarks => ({ ...prevBookMarks, youtube: { ...prevBookMarks.youtube, [ind]: !prevBookMarks.youtube[ind] } }));
     }

@@ -6,6 +6,8 @@ import { useSearchParams, useActionData, Form } from "react-router-dom";
 import { getRoleData } from "../utils/getRoleData";
 // import getRoadMaps from "../utils/getRoadmaps";
 import { useNavigate } from "react-router-dom";
+import BASE_URL from "../../utils/baseURL";
+
 
 export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
@@ -15,7 +17,7 @@ export async function action({ request }) {
   if (shouldSave) {
     const email = searchParams.get("email");
     formData.append("email", email);
-    const res = await axios.post("http://127.0.0.1:8000/api/user-info", formData);
+    const res = await axios.post(`${BASE_URL}/api/user-info`, formData);
     console.log(res);
   }
   // const name = formData.get("name");
@@ -41,7 +43,7 @@ export default function RoadMap() {
     async function getUserData() {
       setLoading(true);
       if (user) {
-        const res = await axios.get(`http://127.0.0.1:8000/api/user-info?email=${user.email}`)
+        const res = await axios.get(`${BASE_URL}/api/user-info?email=${user.email}`)
         if (res.data?.error) {
           setSearchParams(prevParams => {
             prevParams.set("save", "true");
