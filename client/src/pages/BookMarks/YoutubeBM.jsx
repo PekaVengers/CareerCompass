@@ -7,7 +7,7 @@ import NoBookMarks from "../../components/NoBookMarks";
 export default function YoutubeBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);
   const { user } = useAuth0();
-  const [loading, setShowLoading] = useState(false);
+  const [loading, setShowLoading] = useState(true);
 
   useEffect(() => {
     async function fetchBookMarks() {
@@ -15,11 +15,11 @@ export default function YoutubeBM() {
       setCurrentBookmarks(res.data);
     }
 
+    setShowLoading(true);
     if (user) {
-      setShowLoading(true);
       fetchBookMarks();
-      setShowLoading(false);
     }
+    setShowLoading(false);
   }, [user]);
 
 
@@ -31,11 +31,11 @@ export default function YoutubeBM() {
 
   return (
     !loading
-    ? <div className="mt-[3.125rem] ml-[13.5rem] mr-[11.25rem] flex flex-col gap-4 py-[3.875rem] px-[5.625rem]">
-      {
-        currentBookmarks.length > 0
-        ? currentBookmarks.map((yt, i) => (
-          <Card
+      ? <div className="mt-[3.125rem] ml-[13.5rem] mr-[11.25rem] flex flex-col gap-4 py-[3.875rem] px-[5.625rem]">
+        {
+          currentBookmarks.length > 0
+            ? currentBookmarks.map((yt, i) => (
+              <Card
                 title={yt.name}
                 content={yt.description}
                 link={yt.link}
@@ -45,10 +45,10 @@ export default function YoutubeBM() {
                 ind={i}
                 isBookMarked={true}
               />
-        ))
-        : <NoBookMarks />
-      }
-    </div>
-    : <div>Loading...</div>
+            ))
+            : <NoBookMarks />
+        }
+      </div>
+      : <div>Loading...</div>
   );
 }

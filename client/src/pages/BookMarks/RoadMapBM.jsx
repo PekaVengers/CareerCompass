@@ -12,19 +12,19 @@ export async function loader() {
 export default function RoadMapBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);
   const { user } = useAuth0();
-  const [loading, setShowLoading] = useState(false);
+  const [loading, setShowLoading] = useState(true);
 
   useEffect(() => {
+    setShowLoading(true);
     async function fetchBookMarks() {
       const res = await axios.get(`http://localhost:8000/api/bookmarks?type=roadmap&email=${user.email}`);
       setCurrentBookmarks(res.data);
     }
-
+    
     if (user) {
-      setShowLoading(true);
       fetchBookMarks();
-      setShowLoading(false);
     }
+    setShowLoading(false);
   }, [user]);
 
 

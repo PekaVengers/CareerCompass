@@ -22,13 +22,16 @@ export default function Card(props) {
                     <div>
                         {props.title}
                     </div>
-                    <button onClick={() => props.handleClick(props.ind)}>
-                        {
-                            props.isBookMarked
-                                ? <FaBookmark />
-                                : <FaRegBookmark />
-                        }
-                    </button>
+                    {
+                        !props.pfp &&
+                        <button onClick={() => props.handleClick(props.ind)}>
+                            {
+                                props.isBookMarked
+                                    ? <FaBookmark />
+                                    : <FaRegBookmark />
+                            }
+                        </button>
+                    }
                 </div>
                 <div className="desc text-lg">
                     {props.content.length > 150 ? props.content.slice(0, 150) + "..." : props.content}

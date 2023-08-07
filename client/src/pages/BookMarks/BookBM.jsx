@@ -6,7 +6,7 @@ import NoBookMarks from "../../components/NoBookMarks";
 
 export default function BookBM() {
   const [currentBookmarks, setCurrentBookmarks] = useState([]);
-  const [loading, setShowLoading] = useState(false);
+  const [loading, setShowLoading] = useState(true);
   const { user } = useAuth0();
 
   useEffect(() => {
@@ -15,11 +15,11 @@ export default function BookBM() {
       setCurrentBookmarks(res.data);
     }
 
+    setShowLoading(true);
     if (user) {
-      setShowLoading(true);
       fetchBookMarks();
-      setShowLoading(false);
     }
+    setShowLoading(false);
   }, [user]);
 
   async function handleBookBM(ind) {
