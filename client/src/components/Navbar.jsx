@@ -13,8 +13,6 @@ export default function Navbar() {
   useEffect(() => {
     setIsLoggedIn(isAuthenticated);
   }, [location.pathname, isAuthenticated])
-  console.log(isLoggedIn);
-  console.log("isAuthorized", isAuthenticated);
 
   return (
     <div>
@@ -29,6 +27,9 @@ export default function Navbar() {
           </li>
           <li className="mx-4 my-6 md:my-0">
             <NavLink className="text-xl hover:text-green-500 duration-500" to="/roadmap">Roadmap</NavLink>
+          </li>
+          <li className="mx-4 my-6 md:my-0">
+            <NavLink className="text-xl hover:text-green-500 duration-500" to="/bookmarks">BookMarks</NavLink>
           </li>
           {
             isLoggedIn && 

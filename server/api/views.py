@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from .models import UserDetails, RoadMap, Book, Youtube
-from .serializers import UserDetailsSerializer
+from .serializers import UserDetailsSerializer, RoadMapSerializer, BookSerializer, YoutubeSerializer
 from .utils import get_resources
 
 class IndexView(APIView):
@@ -40,6 +40,20 @@ class ResourcesView(APIView):
         return Response(resources, status=status.HTTP_200_OK)
 
 class BookMarkView(APIView):
+
+    def get(self, request):
+        bookmark_type = request.GET.get("type")
+        if bookmark_type == "roadmap":
+            roadmaps = RoadMap.objects.all()
+            serializer = RoadMapSerializer(roadmaps, many=True)
+        elif bookmark_type == "books":
+            books = Book.objects.all()
+            serializer = BookSerializer(books, many=True)
+        else:
+            youtube = Youtube.objects.all()
+            serializer = YoutubeSerializer(youtube, many=True)
+
+        return Response(serializer.data)
 
     def post(self, request):
         bookmark_type = request.data.get("type")
