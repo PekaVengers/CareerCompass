@@ -10,6 +10,8 @@ import { useNavigate, useSearchParams, useActionData, useNavigation } from "reac
 import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CollectInfo from "../components/CollectInfo";
+import MentorCard from "../components/MentorCard";
+import mentor from "../assets/mentor.svg"
 
 export async function action({ request }) {
   const searchParams = new URL(request.url).searchParams;
@@ -81,6 +83,24 @@ export default function Profile() {
           />
           <div className="flex justify-center items-center">
             <button onClick={handleClick} className="bg-green-600 px-8 py-4 text-white rounded-2xl font-semibold">{userDetails ? "Update Details" : "Add Details"}</button>
+          </div>
+          <div className="mentor mt-10 flex flex-col gap-1">
+            <div className="title flex items-center gap-2">
+              <img className="w-[80px] h-[80px]" src={mentor} alt="" />
+              <div className="text-3xl font-bold">MENTORS</div>
+            </div>
+            <MentorCard 
+              name = "ABHISHEK KUMAR"
+              content = "SKILLS : Full Stack Developer"
+              num = "+91 9998887777"
+              mail = "abhishekkumar123@gmail.com"
+            />
+            <MentorCard 
+              name = "ABHISHEK KUMAR"
+              content = "SKILLS : Full Stack Developer"
+              num = "+91 9998887777"
+              mail = "abhishekkumar123@gmail.com"
+            />
           </div>
         </div>
         <div className="col-2 pl-8 mt-[5.1875rem] mr-[11.25rem]">
