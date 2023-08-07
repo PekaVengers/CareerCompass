@@ -32,7 +32,7 @@ export default function Navbar() {
           {
             isLoggedIn &&
             <li className="mx-4 my-6 md:my-0">
-              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/bookmarks">BookMarks</NavLink>
+              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/bookmarks">Bookmarks</NavLink>
             </li>
           }
           {
