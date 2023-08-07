@@ -36,9 +36,12 @@ export default function Card(props) {
                 <div className="desc text-lg">
                     {props.content.length > 150 ? props.content.slice(0, 150) + "..." : props.content}
                 </div>
-                <div className="flex gap-2">
-                    <Link to={props.link} className="link text-lg underline">View Channel</Link>
-                </div>
+                {
+                    props.type == "book" &&
+                    <div className="flex gap-2">
+                        <Link to={props.link} className="link text-lg underline">View Channel</Link>
+                    </div>
+                }
             </div>
         </div>
     )
