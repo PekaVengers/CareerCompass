@@ -11,6 +11,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     clientId={import.meta.env.VITE_AUTH0_CLIENTID}
     // useRefreshTokens
     // cacheLocation="localstorage"
+    
     authorizationParams={{
       redirect_uri: import.meta.env.VITE_REDIRECT_URI,
     }}
