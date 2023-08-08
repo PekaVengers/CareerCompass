@@ -43,20 +43,20 @@ Hey [user name], suggested career or job for you is
  
 Information provided below is user input, gather that information and return output like you are told to.
 `;
-    const content2 = `
-User name : Himanshu
-Fields of interest : technology, coding, chess
-Key strength: problem solving
-Aspiration : coding
-Education Level : University
-`;
 //     const content2 = `
-// User name : ${name}
-// Fields of interest : ${interests}
-// Key strength: ${strength}
-// Aspiration : ${aspiration}
-// Education Level : ${education}
+// User name : Himanshu
+// Fields of interest : technology, coding, chess
+// Key strength: problem solving
+// Aspiration : coding
+// Education Level : University
 // `;
+    const content2 = `
+User name : ${name}
+Fields of interest : ${interests}
+Key strength: ${strength}
+Aspiration : ${aspiration}
+Education Level : ${education}
+`;
 
     const response = await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
