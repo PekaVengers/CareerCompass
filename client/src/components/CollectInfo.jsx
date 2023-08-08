@@ -3,12 +3,14 @@ import { Form } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import formBg from "../assets/formbg.png"
 import formBg1 from "../assets/formbg1.png"
+import { useNavigation } from "react-router-dom";
 
 export default function CollectInfo({form}) {
   const [step, setStep] = useState(0);
   const [showError, setShowError] = useState(false);
   const [currentVal, setCurrentVal] = useState("");
   const { user } = useAuth0();
+  const navigation = useNavigation();
 
   function changeStep() {
     if (currentVal === "" && step != 0) {
@@ -103,7 +105,7 @@ export default function CollectInfo({form}) {
           </div>
         }
         {((step <= 4 && !user) || (step <= 3 && user)) && <button className="absolute ml-[196px] mb-[341px] bg-[#43B14B] rounded-3xl text-white px-12 py-[13px] text-xl" style={step != 0 ? {marginLeft : "48rem"}: {}} type="button" onClick={changeStep}>{step === 0 ? "Let's Go" : "Next"}</button>}
-        {((!user && step >= 5) || (step >= 4 && user)) && <button className="absolute ml-[48rem] mb-[341px] bg-[#43B14B] rounded-3xl text-white px-12 py-[13px] text-xl">Submit</button>}
+        {((!user && step >= 5) || (step >= 4 && user)) && <button className="absolute ml-[48rem] mb-[341px] bg-[#43B14B] rounded-3xl text-white px-12 py-[13px] text-xl">{navigation.state === "submitting" ? "Submitting" : "Submit"}</button>}
       </Form>
     </div>
   );

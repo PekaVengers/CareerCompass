@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useSearchParams, useActionData, Form } from "react-router-dom";
 import { getRoleData } from "../utils/getRoleData";
-// import getRoadMaps from "../utils/getRoadmaps";
+import getRoadMaps from "../utils/getRoadmaps";
 import { useNavigate } from "react-router-dom";
 import {BASE_URL} from "../utils/baseURL";
 
@@ -19,14 +19,14 @@ export async function action({ request }) {
     formData.append("email", email);
     await axios.post(`${BASE_URL}/api/user-info`, formData);
   }
-  // const name = formData.get("name");
-  // const interest = formData.get("interest");
-  // const strength = formData.get("strength");
-  // const aspiration = formData.get("aspiration");
-  // const education = formData.get("education");
-  // const roadmaps = await getRoadMaps(name, interest, strength, aspiration, education);
+  const name = formData.get("name");
+  const interest = formData.get("interest");
+  const strength = formData.get("strength");
+  const aspiration = formData.get("aspiration");
+  const education = formData.get("education");
+  const roadmaps = await getRoadMaps(name, interest, strength, aspiration, education);
 
-  return getRoleData();
+  return roadmaps;
 
 }
 
