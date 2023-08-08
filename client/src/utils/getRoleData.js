@@ -1,4 +1,4 @@
-const data = `
+const temp_data = `
 Hey Himanshu, suggested career or job for you is 
 1. Software Engineer
 Job Description of Software Engineer:
@@ -36,7 +36,7 @@ e.) Stay updated with the latest developments in data analysis through online co
 Remember, these are just a few career options based on your interests and strengths. It's always a good idea to explore further and consider other factors such as personal preferences and market demand before making a final decision.
 `;
 
-export function getRoleData() {
+export function getRoleData(data) {
   const res = [];
   let roles = data.split(/\d+\.\s/).slice(1);
   for (let role of roles) {

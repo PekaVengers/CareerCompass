@@ -27,7 +27,6 @@ export async function action({ request }) {
   const roadmaps = await getRoadMaps(name, interest, strength, aspiration, education);
 
   return roadmaps;
-
 }
 
 export default function RoadMap() {
