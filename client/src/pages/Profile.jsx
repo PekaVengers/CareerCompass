@@ -84,7 +84,7 @@ export default function Profile() {
           <div className="flex justify-center items-center">
             <button onClick={handleClick} className="bg-green-600 px-8 py-4 text-white rounded-2xl font-semibold">{userDetails ? "Update Details" : "Add Details"}</button>
           </div>
-          <div className="mentor mt-10 flex flex-col gap-1">
+          <div className=" overflow-y-auto max-h-[60%] mt-10 flex flex-col gap-1">
             <div className="title flex items-center gap-2">
               <img className="w-[80px] h-[80px]" src={mentor} alt="" />
               <div className="text-3xl font-bold">MENTORS</div>
