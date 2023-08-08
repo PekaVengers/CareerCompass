@@ -39,7 +39,7 @@ export default function CollectInfo({form}) {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your name?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="name" name="name" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="name" name="name" type="text" />
                 </div>
               </div>
             </label>
@@ -53,7 +53,7 @@ export default function CollectInfo({form}) {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your interests?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="interest" name="interest" type="text" />
                 </div>
               </div>
             </label>
@@ -67,7 +67,7 @@ export default function CollectInfo({form}) {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What are your strengths?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="strength" name="strength" type="text" />
                 </div>
               </div>
             </label>
@@ -81,7 +81,7 @@ export default function CollectInfo({form}) {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div>What is your aspiration?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="aspiration" name="aspiration" type="text" />
                 </div>
               </div>
             </label>
@@ -95,7 +95,7 @@ export default function CollectInfo({form}) {
                 <div className="text-[#0FA958] font-bold">{step} -&gt; </div>
                 <div className="flex flex-col">
                   <div> What is your education level?</div>
-                  <input style={{ borderBottom: "1px solid black", marginBottom: "0.5rem", marginTop: "0.5rem" }} onChange={handleChange} id="education" name="education" type="text" />
+                  <input style={{ borderBottom: "1px solid black", marginBottom: "2rem", marginTop: "2rem", padding: "1rem" }} onChange={handleChange} id="education" name="education" type="text" />
                 </div>
               </div>
             </label>

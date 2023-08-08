@@ -3,7 +3,12 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Profile, {action as profileAction} from "./pages/Profile";
 import RoadMap, {action as roadmapAction} from "./pages/Roadmap";
-import RoadmapDetail from "./pages/RoadmapDetail";
+import Loader from "./components/Loader";
+import RoadmapDetail, {loader as roadmapDetailLoader} from "./pages/RoadmapDetail";
+import BookmarksLayout from "./components/BookmarksLayout";
+import BookBM from "./pages/BookMarks/BookBM";
+import RoadMapBM  from "./pages/BookMarks/RoadMapBM";
+import YoutubeBM from "./pages/BookMarks/YoutubeBM";
 
 
 const router = createBrowserRouter(createRoutesFromElements(
@@ -11,7 +16,13 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route element={<Home />} index />
     <Route action={profileAction} element={<Profile />} path="profile" />
     <Route action={roadmapAction} element={<RoadMap />} path="roadmap" />
-    <Route element={<RoadmapDetail />} path="roadmap-detail" />
+    <Route element={<Loader />} path="loading" />
+    <Route element={<RoadmapDetail />} loader={roadmapDetailLoader} path="roadmap-detail" />
+    <Route element={<BookmarksLayout />} path="bookmarks">
+      <Route element={<RoadMapBM />} index />
+      <Route element={<BookBM />} path="books" />
+      <Route element={<YoutubeBM />} path="youtube" />
+    </Route>
   </Route>
 ));
 
