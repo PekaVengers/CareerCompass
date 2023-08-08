@@ -21,28 +21,28 @@ export default function Navbar() {
           <img src={Logo} alt="logo" />
         </div>
         <ul className="md:flex md:items-center z-[-1] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[400px] transition-all ease-in duration-500 font-inter">
-          <li className="mx-4 my-6 md:my-0">
-            <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/">Home</NavLink>
+          <li className="mx-4 my-6 md:my-0 font-bold">
+            <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/">Home</NavLink>
           </li>
 
           <li className="mx-4 my-6 md:my-0">
-            <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/roadmap">Roadmap</NavLink>
+            <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/roadmap">Roadmap</NavLink>
           </li>
           {
             isLoggedIn &&
             <li className="mx-4 my-6 md:my-0">
-              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/bookmarks">Bookmarks</NavLink>
+              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/bookmarks">Bookmarks</NavLink>
             </li>
           }
           {
             isLoggedIn &&
             <li className="mx-4 my-6 md:my-0">
-              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 ${isActive ? "text-green-500" : ""}`)} to="/profile">Profile</NavLink>
+              <NavLink className={({ isActive }) => (`text-xl hover:text-green-500 duration-500 font-bold ${isActive ? "text-green-500" : ""}`)} to="/profile">Profile</NavLink>
             </li>
           }
           {
             !isLoggedIn &&
-            <li className="mx-4 my-6 md:my-0">
+            <li className="mx-4 my-6 md:my-0 font-bold">
               <LoginButton />
             </li>
           }
