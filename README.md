@@ -6,6 +6,14 @@
 
 CareerCompass aims to assist students in making informed decisions about their future career paths. By allowing students to fill in their details and interests, the platform suggests suitable career options based on their preferences. Once a student selects a specific career field, CareerCompass provides a detailed roadmap outlining the steps and milestones required to pursue that career. Additionally, the platform offers a curated list of resources, such as books, YouTube videos, and channels, to help students gain knowledge and skills related to their chosen career path.
 
+## Important Links
+
+YouTube Video : https://www.youtube.com/watch?v=fVUHcoLfnTk
+
+Hosted Website : https://career-compass.vercel.app/
+
+Figma Design : https://www.figma.com/file/exB3X837eyk4czD6yyaKbh/careercompass?type=design&node-id=0%3A1&mode=design&t=NltIt2PznuSX4iys-1
+
 ## How to Contribute
 
 We welcome contributions from the open-source community to make CareerCompass even better! If you want to contribute to the project, follow these simple steps:
